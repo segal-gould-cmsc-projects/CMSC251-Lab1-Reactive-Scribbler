@@ -36,13 +36,10 @@ class ReactiveScribbler:
                 print("Stopping; It\'s safe to continue.")
                 self.scribbler.stop()
                 safeToTurn = False
-            print("Obstacle Readings:\n\tLeft: %d, %s\n\tCenter: %d, %s" % (robot.getObstacle(0), \
-                                                                                             str(safeToContinueList[0]), \
-                                                                                             robot.getObstacle(1), \
-                                                                                             str(safeToContinueList[1])))
+            print("Obstacle Readings:\n\tLeft: %d\n\tCenter: %d" % (robot.getObstacle(0), robot.getObstacle(1)))
         self.followTheWall()
         
-robot = makeRobot("Scribbler", "/dev/tty.Fluke2-094E-Fluke2")
-## robot =  makeRobot("SimScribbler", Simulation())
+## robot = makeRobot("Scribbler", "/dev/tty.Fluke2-094E-Fluke2")
+robot =  makeRobot("SimScribbler", Simulation())
 
 ReactiveScribbler(robot).followTheWall()
